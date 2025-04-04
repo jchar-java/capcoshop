@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.jchar.capcoshop.produits.Produit;
 
-public interface CalculPanier {
+public interface StrategieCalculPanier {
 	
 	public int calculerPanier(List<Produit> panierProduits);
 

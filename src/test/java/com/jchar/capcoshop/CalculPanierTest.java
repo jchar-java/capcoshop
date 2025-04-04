@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
-import com.jchar.capcoshop.calculpanier.CalculPanier;
+import com.jchar.capcoshop.calculpanier.StrategieCalculPanier;
 import com.jchar.capcoshop.clients.ClientParticulier;
 import com.jchar.capcoshop.clients.ClientProfessionnel;
 import com.jchar.capcoshop.produits.OrdinateurPortable;
@@ -19,7 +19,7 @@ class CalculPanierTest {
 	@Test
 	void testCalculerPanierClientParticulierVide() {
 		ClientParticulier clientParticulier = new ClientParticulier("Sam", "Fisher");
-		CalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientParticulier);
+		StrategieCalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientParticulier);
 		assertEquals(0, calculPanier.calculerPanier(clientParticulier.getPanierProduits()));
 	}
 
@@ -35,9 +35,9 @@ class CalculPanierTest {
 		panierParticulier.add(telephoneMoyenGamme);
 		panierParticulier.add(ordinateurPortable);
 		
-		clientParticulier.setPanierProduits(panierParticulier);
+		clientParticulier.addAllProduitsPanier(panierParticulier);
 
-		CalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientParticulier);
+		StrategieCalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientParticulier);
 		assertEquals(3500, calculPanier.calculerPanier(clientParticulier.getPanierProduits()));
 	}
 
@@ -52,16 +52,16 @@ class CalculPanierTest {
 		panierParticulier.add(ordinateurPortable);
 		panierParticulier.add(telephoneHautDeGamme);
 		
-		particulier.setPanierProduits(panierParticulier);
+		particulier.addAllProduitsPanier(panierParticulier);
 
-		CalculPanier calculPanier = Main.determinerStrategieCalculPanier(particulier);
+		StrategieCalculPanier calculPanier = Main.determinerStrategieCalculPanier(particulier);
 		assertEquals(4200, calculPanier.calculerPanier(particulier.getPanierProduits()));
 	}
 	
 	@Test
 	void testCalculerPanierClientProSupVide() {
 		ClientProfessionnel clientProSup = new ClientProfessionnel("Rockstar Games", "", "123 456 789", 11000000);
-		CalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientProSup);
+		StrategieCalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientProSup);
 		assertEquals(0, calculPanier.calculerPanier(clientProSup.getPanierProduits()));
 	}
 
@@ -77,9 +77,9 @@ class CalculPanierTest {
 		panierProSup.add(ordinateurPortable);
 		panierProSup.add(telephoneMoyenGamme);
 		
-		proSup.setPanierProduits(panierProSup);
+		proSup.addAllProduitsPanier(panierProSup);
 
-		CalculPanier calculPanier = Main.determinerStrategieCalculPanier(proSup);
+		StrategieCalculPanier calculPanier = Main.determinerStrategieCalculPanier(proSup);
 		assertEquals(2450, calculPanier.calculerPanier(proSup.getPanierProduits()));
 	}
 	
@@ -97,16 +97,16 @@ class CalculPanierTest {
 		panierProSup.add(telephoneMoyenGamme);
 		panierProSup.add(ordinateurPortable);
 		
-		clientProSup.setPanierProduits(panierProSup);
+		clientProSup.addAllProduitsPanier(panierProSup);
 
-		CalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientProSup);
+		StrategieCalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientProSup);
 		assertEquals(4350, calculPanier.calculerPanier(clientProSup.getPanierProduits()));
 	}
 	
 	@Test
 	void testCalculerPanierClientProfessionnelVide() {
 		ClientProfessionnel clientProSup = new ClientProfessionnel("Ubisoft", "", "123 456 789", 5000000);
-		CalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientProSup);
+		StrategieCalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientProSup);
 		assertEquals(0, calculPanier.calculerPanier(clientProSup.getPanierProduits()));
 	}
 	
@@ -122,9 +122,9 @@ class CalculPanierTest {
 		panierPro.add(telephoneHautDeGamme);
 		panierPro.add(telephoneMoyenGamme);
 		
-		clientPro.setPanierProduits(panierPro);
+		clientPro.addAllProduitsPanier(panierPro);
 
-		CalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientPro);
+		StrategieCalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientPro);
 		assertEquals(2750, calculPanier.calculerPanier(clientPro.getPanierProduits()));
 	}
 	
@@ -141,9 +141,9 @@ class CalculPanierTest {
 		panierPro.add(ordinateurPortable);
 		panierPro.add(telephoneMoyenGamme);
 		
-		clientPro.setPanierProduits(panierPro);
+		clientPro.addAllProduitsPanier(panierPro);
 
-		CalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientPro);
+		StrategieCalculPanier calculPanier = Main.determinerStrategieCalculPanier(clientPro);
 		assertEquals(3750, calculPanier.calculerPanier(clientPro.getPanierProduits()));
 	}
 }

@@ -7,7 +7,6 @@ public final class ClientParticulier extends Client {
 	private String prenom;
 	
 	public ClientParticulier(String nom, String prenom) {
-		super();
 		this.nom = nom;
 		this.prenom = prenom;
 	}

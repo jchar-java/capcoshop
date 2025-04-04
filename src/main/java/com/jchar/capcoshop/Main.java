@@ -1,6 +1,6 @@
 package com.jchar.capcoshop;
 
-import com.jchar.capcoshop.calculpanier.CalculPanier;
+import com.jchar.capcoshop.calculpanier.StrategieCalculPanier;
 import com.jchar.capcoshop.calculpanier.impl.CalculPanierClientParticulier;
 import com.jchar.capcoshop.calculpanier.impl.CalculPanierClientProfessionnel;
 import com.jchar.capcoshop.calculpanier.impl.CalculPanierClientProfessionnelPlus;
@@ -14,7 +14,7 @@ public class Main {
 		System.out.println("Welcome to CapcoShop");
 	}
 
-	public static CalculPanier determinerStrategieCalculPanier(Client client) {
+	public static StrategieCalculPanier determinerStrategieCalculPanier(Client client) {
 
 		return switch(client) {
 			case ClientParticulier clientParticulier -> new CalculPanierClientParticulier();

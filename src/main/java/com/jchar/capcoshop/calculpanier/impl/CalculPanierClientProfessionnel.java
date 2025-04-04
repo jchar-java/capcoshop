@@ -1,17 +1,19 @@
 package com.jchar.capcoshop.calculpanier.impl;
 
 import java.util.List;
+import java.util.Objects;
 
-import com.jchar.capcoshop.calculpanier.CalculPanier;
+import com.jchar.capcoshop.calculpanier.StrategieCalculPanier;
 import com.jchar.capcoshop.produits.Produit;
 
-public class CalculPanierClientProfessionnel implements CalculPanier {
+public class CalculPanierClientProfessionnel implements StrategieCalculPanier {
 
 	@Override
 	public int calculerPanier(List<Produit> panierProduits) {
-		if(panierProduits != null && !panierProduits.isEmpty()) {
-			return panierProduits.stream().mapToInt(produit -> produit.getPrixProfessionnel()).sum();
-		}
-		return 0;
+		return Objects.requireNonNull(panierProduits)
+				.stream()
+				.filter(p -> Objects.nonNull(p))
+				.mapToInt(produit -> produit.getPrixProfessionnel())
+				.sum();
 	}
 }

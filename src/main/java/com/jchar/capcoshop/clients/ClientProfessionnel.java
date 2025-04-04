@@ -10,11 +10,8 @@ public final class ClientProfessionnel extends Client {
 	
 	private long chiffreAffairesAnnuel;
 	
-	
-
 	public ClientProfessionnel(String raisonSociale, String numeroTvaIntracommunautaire, String siren,
 			long chiffreAffairesAnnuel) {
-		super();
 		this.raisonSociale = raisonSociale;
 		this.numeroTvaIntracommunautaire = numeroTvaIntracommunautaire;
 		this.siren = siren;
