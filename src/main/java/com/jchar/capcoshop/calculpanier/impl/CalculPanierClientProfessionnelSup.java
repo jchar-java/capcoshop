@@ -6,7 +6,7 @@ import java.util.Objects;
 import com.jchar.capcoshop.calculpanier.StrategieCalculPanier;
 import com.jchar.capcoshop.produits.Produit;
 
-public class CalculPanierClientProfessionnelPlus implements StrategieCalculPanier {
+public class CalculPanierClientProfessionnelSup implements StrategieCalculPanier {
 
 	@Override
 	public int calculerPanier(List<Produit> panierProduits) {
