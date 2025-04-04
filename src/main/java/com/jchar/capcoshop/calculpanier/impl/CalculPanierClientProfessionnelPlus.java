@@ -9,8 +9,8 @@ public class CalculPanierClientProfessionnelPlus implements CalculPanier {
 
 	@Override
 	public int calculerPanier(List<Produit> panierProduits) {
-		if(panierProduits != null && panierProduits.size() > 0) {
-			return panierProduits.stream().mapToInt(p -> p.getPrixProfessionnelSup()).sum();
+		if(panierProduits != null && !panierProduits.isEmpty()) {
+			return panierProduits.stream().mapToInt(produit -> produit.getPrixProfessionnelSup()).sum();
 		}
 		return 0;
 	}
