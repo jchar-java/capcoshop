@@ -13,7 +13,7 @@ public class CalculPanierClientProfessionnelPlus implements StrategieCalculPanie
 		return Objects.requireNonNull(panierProduits)
 				.stream()
 				.filter(p -> Objects.nonNull(p))
-				.mapToInt(produit -> produit.getPrixProfessionnelSup()).
-				sum();
+				.mapToInt(produit -> produit.getPrixProfessionnelSup())
+				.sum();
 	}
 }
