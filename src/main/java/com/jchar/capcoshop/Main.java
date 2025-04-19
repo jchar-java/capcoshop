@@ -1,9 +1,6 @@
 package com.jchar.capcoshop;
 
-import com.jchar.capcoshop.calculpanier.StrategieCalculPanier;
-import com.jchar.capcoshop.calculpanier.impl.CalculPanierClientParticulier;
-import com.jchar.capcoshop.calculpanier.impl.CalculPanierClientProfessionnel;
-import com.jchar.capcoshop.calculpanier.impl.CalculPanierClientProfessionnelSup;
+import com.jchar.capcoshop.calculpanier.StrategieCalculPanierEnum;
 import com.jchar.capcoshop.clients.Client;
 import com.jchar.capcoshop.clients.ClientParticulier;
 import com.jchar.capcoshop.clients.ClientProfessionnel;
@@ -14,13 +11,12 @@ public class Main {
 		System.out.println("Welcome to CapcoShop");
 	}
 
-	public static StrategieCalculPanier determinerStrategieCalculPanier(Client client) {
+	public static StrategieCalculPanierEnum determinerStrategieCalculPanier(Client client) {
 
 		return switch(client) {
-			case ClientParticulier clientParticulier -> new CalculPanierClientParticulier();
-			case ClientProfessionnel clientPro when clientPro.getChiffreAffairesAnnuel() <= 10000000 -> new CalculPanierClientProfessionnel();
-			case ClientProfessionnel clientPro -> new CalculPanierClientProfessionnelSup();
-			default -> throw new IllegalArgumentException("Unexpected value: " + client);
+			case ClientParticulier clientParticulier -> StrategieCalculPanierEnum.PARTICULIER;
+			case ClientProfessionnel clientPro when clientPro.getChiffreAffairesAnnuel() <= 10000000 -> StrategieCalculPanierEnum.PRO;
+			case ClientProfessionnel clientPro -> StrategieCalculPanierEnum.PRO_SUP;
 		};
 
 	}
